@@ -25,10 +25,8 @@ const IssueList = () => {
         try {
             const response = await fetch(`http://localhost:5000/api/issues/${id}`, {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' }
             });
             if (response.ok) {
-                // Instantly remove the deleted issue from state UI
                 setIssues(issues.filter(issue => issue._id !== id));
             }
         } catch (error) {
